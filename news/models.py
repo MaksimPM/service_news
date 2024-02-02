@@ -15,7 +15,7 @@ class NewsCategories(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=100, verbose_name='заголовок')
     content = models.CharField(max_length=1000, verbose_name='содержание')
-    categories = models.ForeignKey(NewsCategories, on_delete=models.CASCADE)
+    categories = models.ManyToManyField(NewsCategories)
 
     def __str__(self):
         return f'{self.title}'
